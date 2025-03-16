@@ -1,2 +1,0 @@
-ST7565_ENABLE = yes
-WPM_ENABLE = yes
