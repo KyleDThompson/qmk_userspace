@@ -1,10 +1,25 @@
 #include QMK_KEYBOARD_H
 #include "version.h"
 #define KC_CAD	LALT(LCTL(KC_DEL))
+
+char wpm_str[10];
+
+enum custom_layers {
+    BASE,   // default layer
+    NUMBER,
+	SYMBOL,
+	NUMPAD,// symbols
+    MDIA,   // media keys
+	EPRM,
+	RGB_SLD
+};
+
 enum custom_keycodes {
-    PWD1 = SAFE_RANGE,
-    PWD2,
-    PWD3,
+  PLACEHOLDER = SAFE_RANGE, // can always be here
+  VRSN,
+  PWD1,
+  PWD2,
+  PWD3,
 };
 
 bool process_record_user(uint16_t keycode, keyrecord_t *record) {
@@ -32,25 +47,6 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
         break;
     }
     return true;
-};
-
-
-char wpm_str[10];
-
-enum custom_layers {
-    BASE,   // default layer
-    NUMBER,
-	SYMBOL,
-	NUMPAD,// symbols
-    MDIA,   // media keys
-	EPRM,
-	RGB_SLD
-};
-
-
-enum custom_keycodes {
-  PLACEHOLDER = SAFE_RANGE, // can always be here
-  VRSN,
 };
 
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
