@@ -27,7 +27,7 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
 
     case PWD3:
         if (record->event.pressed) {
-           SEND_STRING("DucksUnderBridgesDontQuack!"));
+           SEND_STRING("DucksUnderBridgesDontQuack!");
         }
         break;
     }
