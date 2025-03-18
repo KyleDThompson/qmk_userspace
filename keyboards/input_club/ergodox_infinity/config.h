@@ -83,12 +83,3 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 //#define NO_ACTION_LAYER
 //#define NO_ACTION_TAPPING
 //#define NO_ACTION_ONESHOT
-
-/* Workaround for second half not communicating correctly */
-#define usb_lld_disconnect_bus(usbp) do {} while(0)
-
-/*enabling LED color changes on both PCBs*/
-#define SPLIT_LAYER_STATE_ENABLE
-#define SPLIT_LED_STATE_ENABLE
-
-#define SPLIT_WATCHDOG_ENABLE
