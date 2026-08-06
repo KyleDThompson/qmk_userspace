@@ -1,4 +1,4 @@
-//#include QMK_KEYBOARD_H
+#include QMK_KEYBOARD_H
 #include "version.h"
 
 enum custom_layers {
