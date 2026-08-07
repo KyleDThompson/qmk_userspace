@@ -364,24 +364,50 @@ void st7565_task_user(void) {
         }
     } else {
         // Draw logo (Right side)
+        update_cat_animation();
+
+     // Idle cat
+     if (get_current_wpm() <= 20) {
+
+        st7565_write_ln_P(PSTR("    /\\_/\\ "), false);
+        st7565_write_ln_P(PSTR("    ( o.o )"), false);
+        st7565_write_ln_P(PSTR("     > ^ < "), false);
+        st7565_write_ln_P(PSTR("    /^\\ /^\\ "), false);
+
+        return;
+    }
+
+    // Animated paws
+    if (cat_frame) {
+
+        st7565_write_ln_P(PSTR("    /\\_/\\ "), false);
+        st7565_write_ln_P(PSTR("    ( ^.^ )"), false);
+        st7565_write_ln_P(PSTR("     > ^ < "), false);
+        st7565_write_ln_P(PSTR("    /^\\ ,., "), false);
+
+    } else {
+
+        st7565_write_ln_P(PSTR("    /\\_/\\ "), false);
+        st7565_write_ln_P(PSTR("    ( ^.^ )"), false);
+        st7565_write_ln_P(PSTR("     > ^ < "), false);
+        st7565_write_ln_P(PSTR("    ,., /^\\ "), false);
+    }
+}
+
         render_bongo_cat();
         
 		switch (get_highest_layer(layer_state)) {
             case BASE:
                 ergodox_infinity_lcd_color(32767, 32767, 32767); // white 50%
-                st7565_write_P(PSTR("  Ergodox  Infinity  "), false);
                 break;
             case NUMBER:
                 ergodox_infinity_lcd_color(32767, 65535, 32767); // greeney
-                st7565_write_P(PSTR("  Ergodox  Infinity  "), false);
                 break;
             case SYMBOL:
                 ergodox_infinity_lcd_color(65535, 32767, 32767); // reddy
-                st7565_write_P(PSTR("  Ergodox  Infinity  "), false);
                 break;
             case NUMPAD:
                 ergodox_infinity_lcd_color(32767, 32767, 65535); // bluey
-                st7565_write_P(PSTR("  Ergodox  Infinity  "), false);
                 break;
             default:
                 // Or use the write_ln shortcut over adding '\n' to the end of your string
