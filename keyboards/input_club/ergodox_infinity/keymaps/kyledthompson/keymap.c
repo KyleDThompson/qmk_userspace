@@ -392,7 +392,6 @@ void st7565_task_user(void) {
         st7565_write_ln_P(PSTR("     > ^ < "), false);
         st7565_write_ln_P(PSTR("    ,., /^\\ "), false);
     }
-}
 
         render_bongo_cat();
         
