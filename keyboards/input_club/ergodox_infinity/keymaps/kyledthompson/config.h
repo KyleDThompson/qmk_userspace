@@ -7,3 +7,8 @@
 
 /* prevent no primary on USB dock */
 #define SPLIT_WATCHDOG_ENABLE
+
+/* prevent display sleeping */
+#ifndef ST7565_TIMEOUT
+#define ST7565_TIMEOUT 60000
+#endif
