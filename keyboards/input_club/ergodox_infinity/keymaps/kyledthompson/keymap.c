@@ -368,7 +368,7 @@ void st7565_task_user(void) {
         render_bongo_cat();
         };
 
-        st7565_write(qmk_logo, false);
+        st7565_write_P(qmk_logo, false);
 		switch (get_highest_layer(layer_state)) {
             case BASE:
                 ergodox_infinity_lcd_color(32767, 32767, 32767); // white 50%
