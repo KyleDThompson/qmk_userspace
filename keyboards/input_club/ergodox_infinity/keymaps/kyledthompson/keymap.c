@@ -287,24 +287,24 @@ void render_bongo_cat(void) {
     // If no recent keypresses, show idle cat.
     // process_record_user updates cat_timer on every keypress.
     if (timer_elapsed32(cat_timer) > 1000) { // 1000 ms idle timeout; adjust as desired
-		st7565_write_ln_P(PSTR("       /\\_/\\ "), false);
-        st7565_write_ln_P(PSTR("      ( o.o )"), false);
-        st7565_write_ln_P(PSTR("       > ^ < "), false);
-        st7565_write_ln_P(PSTR("      /^\\ /^\\ "), false);
+		st7565_write_ln_P(PSTR("        /\\_/\\ "), false);
+        st7565_write_ln_P(PSTR("       ( o.o )"), false);
+        st7565_write_ln_P(PSTR("        > ^ < "), false);
+        st7565_write_ln_P(PSTR("       /^\\ /^\\ "), false);
         return;
     }
 
     // Animated paws (driven by cat_frame toggled in process_record_user)
     if (cat_frame) {
-		st7565_write_ln_P(PSTR("       /\\_/\\  pat "), false);
-        st7565_write_ln_P(PSTR("      ( ^.^ )"), false);
-        st7565_write_ln_P(PSTR("       > ^ < "), false);
-        st7565_write_ln_P(PSTR("      /^\\ ,.,"), false);
+		st7565_write_ln_P(PSTR("        /\\_/\\  pat "), false);
+        st7565_write_ln_P(PSTR("       ( ^.^ )"), false);
+        st7565_write_ln_P(PSTR("        > ^ < "), false);
+        st7565_write_ln_P(PSTR("       /^\\ ,.,"), false);
     } else {
-		st7565_write_ln_P(PSTR("  pit  /\\_/\\ "), false);
-        st7565_write_ln_P(PSTR("      ( ^.^ )"), false);
-        st7565_write_ln_P(PSTR("       > ^ < "), false);
-        st7565_write_ln_P(PSTR("      ,., /^\\ "), false);
+		st7565_write_ln_P(PSTR("   pit  /\\_/\\ "), false);
+        st7565_write_ln_P(PSTR("       ( ^.^ )"), false);
+        st7565_write_ln_P(PSTR("        > ^ < "), false);
+        st7565_write_ln_P(PSTR("       ,., /^\\ "), false);
     }
 }
 
