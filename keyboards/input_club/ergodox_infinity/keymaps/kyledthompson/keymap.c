@@ -296,15 +296,15 @@ void render_bongo_cat(void) {
 
     // Animated paws (driven by cat_frame toggled in process_record_user)
     if (cat_frame) {
-		st7565_write_ln_P(PSTR("        /\\_/\\ pat "), false);
-        st7565_write_ln_P(PSTR("       ( ^.^ )"), false);
-        st7565_write_ln_P(PSTR("        > ^ < "), false);
-        st7565_write_ln_P(PSTR("       ,., /^\\ "), false);
+		st7565_write_ln_P(PSTR("       /\\_/\\  pat "), false);
+        st7565_write_ln_P(PSTR("      ( ^.^ )"), false);
+        st7565_write_ln_P(PSTR("       > ^ < "), false);
+        st7565_write_ln_P(PSTR("      /^\\ ,.,"), false);
     } else {
-		st7565_write_ln_P(PSTR("  pit   /\\_/\\ "), false);
-        st7565_write_ln_P(PSTR("       ( ^.^ )"), false);
-        st7565_write_ln_P(PSTR("        > ^ < "), false);
-        st7565_write_ln_P(PSTR("       ,., /^\\ "), false);
+		st7565_write_ln_P(PSTR("  pit  /\\_/\\ "), false);
+        st7565_write_ln_P(PSTR("      ( ^.^ )"), false);
+        st7565_write_ln_P(PSTR("       > ^ < "), false);
+        st7565_write_ln_P(PSTR("      ,., /^\\ "), false);
     }
 }
 
