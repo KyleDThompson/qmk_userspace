@@ -9,4 +9,4 @@
 #define SPLIT_WATCHDOG_ENABLE
 
 /* prevent display sleeping */
-#define ST7565_TIMEOUT 0
+#define ST7565_TIMEOUT 600000
