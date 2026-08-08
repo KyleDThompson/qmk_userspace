@@ -314,7 +314,7 @@ void st7565_task_user(void) {
         // Host Keyboard Layer Status (Left side)
 
         st7565_write_P(PSTR("Layer: "), false);
-        switch (get_highest_layer(layer_state)) {
+        /*switch (get_highest_layer(layer_state)) {
             case BASE:
                 ergodox_infinity_lcd_color(32767, 32767, 32767); // white 50%
                 st7565_write_P(PSTR("QWERTY\n"), false);
@@ -338,6 +338,27 @@ void st7565_task_user(void) {
                 st7565_write_P(PSTR("NUMPAD\n"), false);
 				sprintf(wpm_str, "wpm: %03d", get_current_wpm());
 				st7565_write_P(wpm_str, false);
+                break;
+            default:
+                // Or use the write_ln shortcut over adding '\n' to the end of your string
+                st7565_write_ln_P(PSTR("Undefined"), false);
+                st7565_on_user();*/
+        switch (get_highest_layer(layer_state)) {
+            case BASE:
+                ergodox_infinity_lcd_color(32767, 32767, 32767); // white 50%
+                render_bongo_cat();
+                break;
+            case NUMBER:
+                ergodox_infinity_lcd_color(32767, 65535, 32767); // greeney
+                render_bongo_cat();
+                break;
+            case SYMBOL:
+                ergodox_infinity_lcd_color(65535, 32767, 32767); // reddy
+                render_bongo_cat();
+                break;
+            case NUMPAD:
+                ergodox_infinity_lcd_color(32767, 32767, 65535); // bluey
+                render_bongo_cat();
                 break;
             default:
                 // Or use the write_ln shortcut over adding '\n' to the end of your string
