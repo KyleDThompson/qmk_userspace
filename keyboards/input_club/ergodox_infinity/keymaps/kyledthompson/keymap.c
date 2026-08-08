@@ -287,24 +287,24 @@ void render_bongo_cat(void) {
     // If no recent keypresses, show idle cat.
     // process_record_user updates cat_timer on every keypress.
     if (timer_elapsed32(cat_timer) > 1000) { // 1000 ms idle timeout; adjust as desired
-        st7565_write_ln_P(PSTR("        /\\_/\\ "), false);
-        st7565_write_ln_P(PSTR("       ( o.o )"), false);
-        st7565_write_ln_P(PSTR("        > ^ < "), false);
-        st7565_write_ln_P(PSTR("       /^\\ /^\\ "), false);
+		st7565_write_ln_P(PSTR("       /\\_/\\ "), false);
+        st7565_write_ln_P(PSTR("      ( o.o )"), false);
+        st7565_write_ln_P(PSTR("       > ^ < "), false);
+        st7565_write_ln_P(PSTR("      /^\\ /^\\ "), false);
         return;
     }
 
     // Animated paws (driven by cat_frame toggled in process_record_user)
     if (cat_frame) {
-        st7565_write_ln_P(PSTR("       /\\_/\\      *pat*"), false);
-        st7565_write_ln_P(PSTR("      ( ^.^ )"), false);
-        st7565_write_ln_P(PSTR("       > ^ < "), false);
-        st7565_write_ln_P(PSTR("      /^\\ ,., "), false);
+		st7565_write_ln_P(PSTR("        /\\_/\\  *pat* "), false);
+        st7565_write_ln_P(PSTR("       ( ^.^ )"), false);
+        st7565_write_ln_P(PSTR("        > ^ < "), false);
+        st7565_write_ln_P(PSTR("       ,., /^\\ "), false);
     } else {
-        st7565_write_ln_P(PSTR(" *pit*    /\\_/\\ "), false);
-        st7565_write_ln_P(PSTR("        ( ^.^ )"), false);
-        st7565_write_ln_P(PSTR("         > ^ < "), false);
-        st7565_write_ln_P(PSTR("        ,., /^\\ "), false);
+		st7565_write_ln_P(PSTR("  *pit* /\\_/\\ "), false);
+        st7565_write_ln_P(PSTR("       ( ^.^ )"), false);
+        st7565_write_ln_P(PSTR("        > ^ < "), false);
+        st7565_write_ln_P(PSTR("       ,., /^\\ "), false);
     }
 }
 
@@ -339,31 +339,31 @@ void st7565_task_user(void) {
         switch (get_highest_layer(layer_state)) {
             case BASE:
                 ergodox_infinity_lcd_color(32767, 32767, 32767); // white 50%
-                st7565_write_ln_P(PSTR(" /\\_/\\               /\\_/\\"), false);
-                st7565_write_ln_P(PSTR("( o.o )  ___________  ( o.o )"), false);
-                st7565_write_ln_P(PSTR(" > ^ <  |___BASE____|  > ^ <"), false);
-                st7565_write_ln_P(PSTR(",.,   /^/           \\^\\  ,.,"), false);
+        st7565_write_ln_P(PSTR(" /\\_/\\         "), false);
+        st7565_write_ln_P(PSTR("( o.o ) ________ "), false);
+        st7565_write_ln_P(PSTR(" > ^ < |_QUERTY_|"), false);
+        st7565_write_ln_P(PSTR(",.,   /^/        "), false);
                 break;
             case NUMBER:
                 ergodox_infinity_lcd_color(32767, 65535, 32767); // greeney
-                st7565_write_ln_P(PSTR(" /\\_/\\               /\\_/\\"), false);
-                st7565_write_ln_P(PSTR("( o.o )  ___________  ( o.o )"), false);
-                st7565_write_ln_P(PSTR(" > ^ <  |__NUMBER___|  > ^ <"), false);
-                st7565_write_ln_P(PSTR(",.,   /^/           \\^\\   ,.,"), false);
+        st7565_write_ln_P(PSTR(" /\\_/\\         "), false);
+        st7565_write_ln_P(PSTR("( o.o ) ________ "), false);
+        st7565_write_ln_P(PSTR(" > ^ < |_NUMBER_|"), false);
+        st7565_write_ln_P(PSTR(",.,   /^/        "), false);
                 break;
             case SYMBOL:
                 ergodox_infinity_lcd_color(65535, 32767, 32767); // reddy
-                st7565_write_ln_P(PSTR(" /\\_/\\               /\\_/\\"), false);
-                st7565_write_ln_P(PSTR("( o.o )  ___________  ( o.o )"), false);
-                st7565_write_ln_P(PSTR(" > ^ <  |__SYMBOL___|  > ^ <"), false);
-                st7565_write_ln_P(PSTR(",.,   /^/           \\^\\   ,.,"), false);
+        st7565_write_ln_P(PSTR(" /\\_/\\         "), false);
+        st7565_write_ln_P(PSTR("( o.o ) ________ "), false);
+        st7565_write_ln_P(PSTR(" > ^ < |_SYMBOL_|"), false);
+        st7565_write_ln_P(PSTR(",.,   /^/        "), false);
                 break;
             case NUMPAD:
                 ergodox_infinity_lcd_color(32767, 32767, 65535); // bluey
-                st7565_write_ln_P(PSTR(" /\\_/\\               /\\_/\\"), false);
-                st7565_write_ln_P(PSTR("( o.o )  ___________  ( o.o )"), false);
-                st7565_write_ln_P(PSTR(" > ^ <  |__NUMPAD___|  > ^ <"), false);
-                st7565_write_ln_P(PSTR(",.,   /^/           \\^\\   ,.,"), false);
+        st7565_write_ln_P(PSTR(" /\\_/\\         "), false);
+        st7565_write_ln_P(PSTR("( o.o ) ________ "), false);
+        st7565_write_ln_P(PSTR(" > ^ < |_NUMPAD_|"), false);
+        st7565_write_ln_P(PSTR(",.,   /^/        "), false);
                 break;
             default:
                 // Or use the write_ln shortcut over adding '\n' to the end of your string
