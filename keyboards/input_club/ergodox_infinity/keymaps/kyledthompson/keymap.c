@@ -284,8 +284,6 @@ void matrix_scan_user(void) {
 #ifdef ST7565_ENABLE
 void render_bongo_cat(void) {
 
-    update_cat_animation();
-
     // Idle cat
     if (get_current_wpm() <= 20) {
 
