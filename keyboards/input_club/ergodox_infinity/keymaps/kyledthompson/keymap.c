@@ -363,7 +363,7 @@ void st7565_task_user(void) {
                 st7565_write_ln_P(PSTR(" /\\_/\\               /\\_/\\"), false);
                 st7565_write_ln_P(PSTR("( o.o )  ___________  ( o.o )"), false);
                 st7565_write_ln_P(PSTR(" > ^ <  |__NUMPAD___|  > ^ <"), false);
-                st7565_write_ln_P(PSTR(",.,   /^/           \\^\\   ,.,"), false);ds
+                st7565_write_ln_P(PSTR(",.,   /^/           \\^\\   ,.,"), false);
                 break;
             default:
                 // Or use the write_ln shortcut over adding '\n' to the end of your string
