@@ -26,6 +26,15 @@ enum custom_keycodes {
 };
 
 bool process_record_user(uint16_t keycode, keyrecord_t *record) {
+    // keypress animation trigger for bongocat
+    if (record->event.pressed) {
+        if (timer_elapsed32(cat_timer) > 150) {
+            cat_frame = !cat_frame;
+            cat_timer = timer_read32();
+        } else {
+            cat_timer = timer_read32();
+        }
+    }
     switch (keycode) {
     case PWD1:
         if (record->event.pressed) {
@@ -273,27 +282,6 @@ void matrix_scan_user(void) {
 
 //Test of different visualizer code
 #ifdef ST7565_ENABLE
-void update_cat_animation(void) {
-    uint8_t wpm = get_current_wpm();
-
-    // Animate only when typing
-    if (wpm > 20) {
-
-        // Faster animation at higher WPM
-        uint16_t speed = 250;
-
-        if (wpm > 40) speed = 150;
-        if (wpm > 80) speed = 75;
-
-        if (timer_elapsed32(cat_timer) > speed) {
-            cat_frame = !cat_frame;
-            cat_timer = timer_read32();
-        }
-    } else {
-        cat_frame = false;
-    }
-}
-
 void render_bongo_cat(void) {
 
     update_cat_animation();
@@ -301,10 +289,10 @@ void render_bongo_cat(void) {
     // Idle cat
     if (get_current_wpm() <= 20) {
 
-        st7565_write_ln_P(PSTR("/\\_/\\ "), false);
-        st7565_write_ln_P(PSTR("( o.o )"), false);
-        st7565_write_ln_P(PSTR(" > ^ < "), false);
-        st7565_write_ln_P(PSTR("/^\\ /^\\ "), false);
+        st7565_write_ln_P(PSTR("     /\\_/\\ "), false);
+        st7565_write_ln_P(PSTR("    ( o.o )"), false);
+        st7565_write_ln_P(PSTR("     > ^ < "), false);
+        st7565_write_ln_P(PSTR("    /^\\ /^\\ "), false);
 
         return;
     }
@@ -312,17 +300,17 @@ void render_bongo_cat(void) {
     // Animated paws
     if (cat_frame) {
 
-        st7565_write_ln_P(PSTR("/\\_/\\ "), false);
-        st7565_write_ln_P(PSTR("( ^.^ )"), false);
-        st7565_write_ln_P(PSTR(" > ^ < "), false);
-        st7565_write_ln_P(PSTR("/^\\ ,., "), false);
+        st7565_write_ln_P(PSTR("     /\\_/\\ "), false);
+        st7565_write_ln_P(PSTR("    ( ^.^ )"), false);
+        st7565_write_ln_P(PSTR("     > ^ < "), false);
+        st7565_write_ln_P(PSTR("    /^\\ ,., "), false);
 
     } else {
 
-        st7565_write_ln_P(PSTR("/\\_/\\ "), false);
-        st7565_write_ln_P(PSTR("( ^.^ )"), false);
-        st7565_write_ln_P(PSTR(" > ^ < "), false);
-        st7565_write_ln_P(PSTR(",., /^\\ "), false);
+        st7565_write_ln_P(PSTR("     /\\_/\\ "), false);
+        st7565_write_ln_P(PSTR("    ( ^.^ )"), false);
+        st7565_write_ln_P(PSTR("     > ^ < "), false);
+        st7565_write_ln_P(PSTR("    ,., /^\\ "), false);
     }
 }
 
