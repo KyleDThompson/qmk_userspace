@@ -364,6 +364,7 @@ void st7565_task_user(void) {
         }
     } else {
         // Draw logo (Right side)
+<<<<<<< HEAD
         update_cat_animation();
 
      // Idle cat
@@ -393,20 +394,26 @@ void st7565_task_user(void) {
         st7565_write_ln_P(PSTR("    ,., /^\\ "), false);
     }
 
+=======
+>>>>>>> parent of 881b417 (Implement cat animation in keymap display)
         render_bongo_cat();
         
 		switch (get_highest_layer(layer_state)) {
             case BASE:
                 ergodox_infinity_lcd_color(32767, 32767, 32767); // white 50%
+                st7565_write_P(PSTR("  Ergodox  Infinity  "), false);
                 break;
             case NUMBER:
                 ergodox_infinity_lcd_color(32767, 65535, 32767); // greeney
+                st7565_write_P(PSTR("  Ergodox  Infinity  "), false);
                 break;
             case SYMBOL:
                 ergodox_infinity_lcd_color(65535, 32767, 32767); // reddy
+                st7565_write_P(PSTR("  Ergodox  Infinity  "), false);
                 break;
             case NUMPAD:
                 ergodox_infinity_lcd_color(32767, 32767, 65535); // bluey
+                st7565_write_P(PSTR("  Ergodox  Infinity  "), false);
                 break;
             default:
                 // Or use the write_ln shortcut over adding '\n' to the end of your string
