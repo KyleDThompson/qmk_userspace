@@ -365,6 +365,7 @@ void st7565_task_user(void) {
     } else {
         // Draw logo (Right side)
 <<<<<<< HEAD
+<<<<<<< HEAD
         update_cat_animation();
 
      // Idle cat
@@ -394,6 +395,8 @@ void st7565_task_user(void) {
         st7565_write_ln_P(PSTR("    ,., /^\\ "), false);
     }
 
+=======
+>>>>>>> parent of 881b417 (Implement cat animation in keymap display)
 =======
 >>>>>>> parent of 881b417 (Implement cat animation in keymap display)
         render_bongo_cat();
